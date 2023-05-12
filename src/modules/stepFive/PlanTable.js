@@ -6,6 +6,7 @@ import {
   Typography,
   TableHead,
   Box,
+  TextField,
 } from "@mui/material";
 import { DM_SANS } from "../../utils/config";
 
@@ -91,83 +92,69 @@ function RowItem(props) {
   const { item } = props;
 
   return (
-    <TableRow>
+    <TableRow
+      sx={{
+        "& .MuiFormControl-root": {
+          height: "63px",
+          borderRadius: "10px",
+          border: "none",
+        },
+        "& .MuiInputBase-root": {
+          height: "63px",
+          fontSize: "10px",
+          border: "none",
+          borderRadius: "10px",
+        },
+      }}
+    >
       <TableCell>
         <Typography sx={{ textAlign: "center" }}>{item.id}</Typography>
       </TableCell>
       <TableCell>
-        <Box
+        <TextField
+          multiline
+          rows={4}
           sx={{
+            fontWeight: 400,
+            color: "#6F6C90",
+            boxShadow: "0px 1.44264px 4.32792px rgba(19, 18, 66, 0.07)",
+            background: "#fff",
             maxWidth: "152px",
             width: "100%",
-            height: "63px",
-            background: "#fff",
-            border: "0.721321px solid #EFF0F7",
-            boxShadow: "0px 1.44264px 4.32792px rgba(19, 18, 66, 0.07)",
-            borderRadius: "10px",
-            padding: "10px",
+            ...DM_SANS,
           }}
-        >
-          <Typography
-            sx={{
-              fontWeight: 400,
-              fontSize: "10px",
-              height: "63px",
-              color: "#6F6C90",
-              ...DM_SANS,
-            }}
-          >
-            {item.textOnPost}
-          </Typography>
-        </Box>
+          value={item.textOnPost}
+        />
       </TableCell>
       <TableCell>
-        <Box
+        <TextField
+          multiline
+          rows={4}
           sx={{
-            maxWidth: "197px",
-            width: "100%",
-            background: "#fff",
-            border: "0.721321px solid #EFF0F7",
+            fontWeight: 400,
+            color: "#6F6C90",
             boxShadow: "0px 1.44264px 4.32792px rgba(19, 18, 66, 0.07)",
-            borderRadius: "10px",
-            padding: "10px",
+            background: "#fff",
+            ...DM_SANS,
           }}
-        >
-          <Typography
-            sx={{
-              fontWeight: 400,
-              fontSize: "10px",
-              color: "#6F6C90",
-              ...DM_SANS,
-            }}
-          >
-            {item.caption}
-          </Typography>
-        </Box>
+          value={item.caption}
+        />
       </TableCell>
-      <TableCell>
-        <Box
+      <TableCell sx={{ pb: 1 }}>
+        <TextField
+          multiline
+          rows={4}
           sx={{
+            fontWeight: 400,
+            color: "#6F6C90",
+            boxShadow: "0px 1.44264px 4.32792px rgba(19, 18, 66, 0.07)",
+            background: "#fff",
             maxWidth: "122px",
             width: "100%",
-            background: "#fff",
-            border: "0.721321px solid #EFF0F7",
-            boxShadow: "0px 1.44264px 4.32792px rgba(19, 18, 66, 0.07)",
-            borderRadius: "10px",
-            padding: "10px",
+            ...DM_SANS,
           }}
-        >
-          <Typography
-            sx={{
-              fontWeight: 400,
-              fontSize: "10px",
-              color: "#6F6C90",
-              ...DM_SANS,
-            }}
-          >
-            {item.hashtags}
-          </Typography>
-        </Box>
+          value={item.hashtags}
+        />
       </TableCell>
     </TableRow>
   );

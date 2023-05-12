@@ -2,7 +2,7 @@ import { Button, Box } from "@mui/material";
 import { POPPINS } from "../utils/config";
 
 export default function NextButton(props) {
-  const { label } = props;
+  const { label, onClick } = props;
 
   return (
     <Box
@@ -13,6 +13,7 @@ export default function NextButton(props) {
       }}
     >
       <Button
+        onClick={onClick}
         sx={{
           background: "#47B2FF",
           boxShadow: "0px 3px 12px rgba(74, 58, 255, 0.18)",

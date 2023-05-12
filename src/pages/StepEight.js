@@ -4,10 +4,10 @@ import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
 import ProgressBar from "../components/ProgressBar";
-import TimeCard from "../modules/stepTen/TimeCard";
+import PostSlider from "../modules/stepEight/PostSlider";
 import { POPPINS } from "../utils/config";
 
-export default function StepTen() {
+export default function StepEight() {
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -16,39 +16,32 @@ export default function StepTen() {
       <Box>
         <Typography
           sx={{
+            color: "#4C4C4C",
             fontWeight: 700,
             fontSize: "30.9042px",
-            color: "#4C4C4C",
             textAlign: "center",
-            maxWidth: "550px",
+            maxWidth: "920px",
             width: "100%",
             ...POPPINS,
           }}
         >
-          Choose <span style={{ color: "#47B2FF" }}> 3 Timings </span> That You
-          Like your Posts
-          <span style={{ color: "#47B2FF" }}> To Be Published At! </span>
+          <span style={{ color: "#47B2FF" }}> Congrats! </span>
+          Our Experts Finalized Your Posts Creations! Review &
+          <span style={{ color: "#47B2FF" }}> Approve </span> For The
+          <span style={{ color: "#47B2FF" }}> Next Steps! </span>
         </Typography>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <Box>
-          <TimeCard />
-        </Box>
-        <Box sx={{ mx: 6.5 }}>
-          <TimeCard />
-        </Box>
-        <Box>
-          <TimeCard />
-        </Box>
+      <Box>
+        <PostSlider />
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar
-          percentage={72}
-          label="Setup Posting Time!"
-          stepNumber={10}
+          percentage={56}
+          label="Approve Creations!"
+          stepNumber={8}
         />
         <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Connect Your Social Accounts" />
+          <NextButton label="Approve Plan!" />
         </Link>
       </Box>
     </Container>

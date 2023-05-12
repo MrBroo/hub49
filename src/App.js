@@ -10,6 +10,8 @@ import StepSix from "./pages/StepSix";
 import StepSeven from "./pages/StepSeven";
 import StepNine from "./pages/StepNine";
 import StepTen from "./pages/StepTen";
+import StepEleven from "./pages/StepEleven";
+import StepEight from "./pages/StepEight";
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
         <Route path="/step-five" element={<StepFive />} />
         <Route path="/step-six" element={<StepSix />} />
         <Route path="/step-seven" element={<StepSeven />} />
+        <Route path="/step-eight" element={<StepEight />} />
         <Route path="/step-nine" element={<StepNine />} />
         <Route path="/step-ten" element={<StepTen />} />
+        <Route path="/step-eleven" element={<StepEleven />} />
       </Routes>
     </ContentWrapper>
   );
