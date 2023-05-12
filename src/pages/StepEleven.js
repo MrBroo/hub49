@@ -19,8 +19,6 @@ import { useState } from "react";
 export default function StepEleven() {
   const [nextPage, setNextPage] = useState(false);
 
-  console.log("qq", nextPage);
-
   return (
     <>
       {!nextPage ? (

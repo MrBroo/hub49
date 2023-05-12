@@ -14,12 +14,14 @@ export default function ProgressBar(props) {
         background: "#fff",
         boxShadow: "0px -4px 15px rgba(0, 0, 0, 0.25)",
         borderRadius: "8px 8px 0px 0px",
-        width: "max-content",
+        maxWidth: !stepNumber ? "334px" : "",
+        width: !stepNumber ? "100%" : "max-content",
       }}
     >
       <Box
         sx={{
           display: "flex",
+          justifyContent: !stepNumber ? "center" : "unset",
           fontSize: "17px",
           ...INTER,
           pt: 2.5,
@@ -27,23 +29,36 @@ export default function ProgressBar(props) {
           px: 2.6,
         }}
       >
+        {percentage === "0" && (
+          <Typography
+            sx={{
+              fontWeight: 700,
+              color: "#3174A5",
+              mr: "19px",
+            }}
+          >
+            {`${percentage}%`}
+          </Typography>
+        )}
         <Typography
           sx={{
+            color: "#1F2224",
             fontWeight: 700,
-            color: "#3174A5",
-            mr: "19px",
+            mr: stepNumber ? "19px" : "0",
           }}
         >
-          {`${percentage}%`}
-        </Typography>
-        <Typography sx={{ color: "#1F2224", fontWeight: 700, mr: "19px" }}>
           {label}
         </Typography>
-        <Typography
-          sx={{ fontWeight: 600, color: "#8FA7B8" }}
-        >{`${stepNumber} ${STEP_NUMBERS[stepNumber]} Step`}</Typography>
+        {stepNumber && (
+          <Typography
+            sx={{ fontWeight: 600, color: "#8FA7B8" }}
+          >{`${stepNumber} ${STEP_NUMBERS[stepNumber]} Step`}</Typography>
+        )}
       </Box>
-      <LinearProgress variant="determinate" value={percentage} />
+      <LinearProgress
+        variant="determinate"
+        value={percentage === 0 ? 2 : percentage}
+      />
     </Box>
   );
 }

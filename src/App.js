@@ -12,6 +12,9 @@ import StepNine from "./pages/StepNine";
 import StepTen from "./pages/StepTen";
 import StepEleven from "./pages/StepEleven";
 import StepEight from "./pages/StepEight";
+import SignIn from "./pages/SignIn";
+import ForgotPassword from "./pages/ForgotPassword";
+import NewPassword from "./pages/NewPassword";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
         <Route path="/step-nine" element={<StepNine />} />
         <Route path="/step-ten" element={<StepTen />} />
         <Route path="/step-eleven" element={<StepEleven />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/new-password" element={<NewPassword />} />
       </Routes>
     </ContentWrapper>
   );
