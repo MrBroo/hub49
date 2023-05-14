@@ -5,8 +5,17 @@ import ProgressBar from "../components/ProgressBar";
 import setting from "../assets/gifs/settings.gif";
 import email from "../assets/gifs/email.gif";
 import { POPPINS } from "../utils/config";
+import { useEffect } from "react";
 
-export default function StepSeven() {
+export default function StepSeven(props) {
+  const { setActive } = props;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setActive();
+    }, 2000);
+  }, []);
+
   return (
     <Container>
       <Box sx={{ width: "100%", position: "relative", textAlign: "center" }}>

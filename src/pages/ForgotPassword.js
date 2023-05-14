@@ -1,4 +1,4 @@
-import { Box, Typography, InputLabel, TextField, Grid } from "@mui/material";
+import { Box, Typography, InputLabel, TextField } from "@mui/material";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import { DM_SANS, POPPINS } from "../utils/config";
@@ -10,6 +10,7 @@ import ProgressBar from "../components/ProgressBar";
 
 export default function ForgotPassword() {
   const [forgotPassword, setForgotPassword] = useState(false);
+
   return (
     <>
       {!forgotPassword ? (
@@ -40,7 +41,7 @@ export default function ForgotPassword() {
                 color: "#565656",
                 fontWeight: 400,
                 fontSize: "21.1781px",
-                mb: "41px",
+                mb: "77px",
                 textAlign: "center",
               }}
             >
@@ -100,7 +101,7 @@ export default function ForgotPassword() {
                 <span style={{ color: "#47B2FF" }}> Reset Password Link </span>
               </Typography>
               <Box
-                sx={{ position: "absolute", bottom: "200px", right: "320px" }}
+                sx={{ position: "absolute", bottom: "190px", right: "320px" }}
               >
                 <img src={line} alt="line" />
               </Box>

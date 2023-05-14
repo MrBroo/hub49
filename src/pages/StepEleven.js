@@ -1,5 +1,4 @@
 import { Box, Button, Card, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -16,7 +15,8 @@ import copy from "../assets/icons/copy.svg";
 import StepElevenCongratsPage from "./StepElevenCongratsPage";
 import { useState } from "react";
 
-export default function StepEleven() {
+export default function StepEleven(props) {
+  const { setActive } = props;
   const [nextPage, setNextPage] = useState(false);
 
   return (
@@ -236,7 +236,7 @@ export default function StepEleven() {
           </Box>
         </Container>
       ) : (
-        <StepElevenCongratsPage />
+        <StepElevenCongratsPage setActive={setActive} />
       )}
     </>
   );

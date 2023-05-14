@@ -1,22 +1,14 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Step,
-  StepButton,
-  StepLabel,
-  Stepper,
-} from "@mui/material";
+import { Box, Card, Step, StepLabel, Stepper } from "@mui/material";
 import { useState } from "react";
 import { INTER } from "../utils/config";
 import { styled } from "@mui/material/styles";
 import Check from "@mui/icons-material/Check";
 
 export default function ContentWrapper(props) {
-  const { children } = props;
-
+  const { children, active } = props;
   const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const [activeStep, setActiveStep] = useState(0);
+
+  console.log("acrive", active);
 
   return (
     <Box
@@ -43,7 +35,7 @@ export default function ContentWrapper(props) {
           px: "50px",
         }}
       >
-        <Stepper alternativeLabel activeStep={2}>
+        <Stepper alternativeLabel activeStep={active}>
           {steps.map((step, index) => (
             <Step
               key={step}
@@ -110,7 +102,7 @@ export default function ContentWrapper(props) {
           <Box
             key={step}
             sx={{
-              background: "#C7D3EB",
+              background: active < step ? "#C7D3EB" : "#47B2FF",
               borderRadius: "12.1781px",
               width: "72.51px",
               height: "15.54px",

@@ -25,6 +25,9 @@ export default function NextButton(props) {
           mr: "35px",
           py: 1.8,
           px: 4,
+          "&:hover": {
+            background: "#50aef1",
+          },
           ...POPPINS,
         }}
       >

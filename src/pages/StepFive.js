@@ -6,7 +6,9 @@ import ProgressBar from "../components/ProgressBar";
 import PlanTable from "../modules/stepFive/PlanTable";
 import { POPPINS } from "../utils/config";
 
-export default function StepFive() {
+export default function StepFive(props) {
+  const { setActive } = props;
+
   const data = [
     {
       id: 1,
@@ -138,7 +140,7 @@ export default function StepFive() {
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={32} label="Approve Plan!" stepNumber={5} />
-        <NextButton label="Approve Plan!" />
+        <NextButton onClick={setActive} label="Approve Plan!" />
       </Box>
     </Container>
   );

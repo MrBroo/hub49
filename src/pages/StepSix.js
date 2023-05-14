@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -8,7 +7,9 @@ import flat from "../assets/gifs/flat.gif";
 import line from "../assets/icons/line.svg";
 import { POPPINS } from "../utils/config";
 
-export default function StepSix() {
+export default function StepSix(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -75,9 +76,7 @@ export default function StepSix() {
           label="Order Your Creations!"
           stepNumber={6}
         />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Order Your Creations Now!" />
-        </Link>
+        <NextButton onClick={setActive} label="Order Your Creations Now!" />
       </Box>
     </Container>
   );

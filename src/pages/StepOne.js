@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -8,7 +7,9 @@ import flat from "../assets/gifs/flat.gif";
 import line from "../assets/icons/line.svg";
 import { POPPINS } from "../utils/config";
 
-export default function StepOne() {
+export default function StepOne(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -58,8 +59,8 @@ export default function StepOne() {
           <Box
             sx={{
               position: "absolute",
-              bottom: "200px",
-              right: "350px",
+              bottom: "190px",
+              right: "340px",
             }}
           >
             <img src={line} alt="line" />
@@ -67,10 +68,8 @@ export default function StepOne() {
         </Box>
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
-        <ProgressBar percentage={0} label="Start Your Journey" stepNumber={1} />
-        <Link to="/step-two" style={{ textDecoration: "none" }}>
-          <NextButton label="Start Your Journey!" />
-        </Link>
+        <ProgressBar percentage={2} label="Start Your Journey" stepNumber={1} />
+        <NextButton onClick={setActive} label="Start Your Journey!" />
       </Box>
     </Container>
   );

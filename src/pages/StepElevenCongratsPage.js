@@ -8,7 +8,9 @@ import flat from "../assets/gifs/flat.gif";
 import line from "../assets/icons/line.svg";
 import { POPPINS } from "../utils/config";
 
-export default function StepElevenCongratsPage() {
+export default function StepElevenCongratsPage(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%", position: "relative", textAlign: "center" }}>
@@ -71,7 +73,7 @@ export default function StepElevenCongratsPage() {
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={90} label="Congrats!!" stepNumber={11} />
-        <NextButton label="Go to Final Page" />
+        <NextButton onClick={setActive} label="Go to Final Page" />
       </Box>
     </Container>
   );

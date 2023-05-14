@@ -20,9 +20,10 @@ import person from "../assets/person.svg";
 import camera from "../assets/icons/camera.svg";
 import house from "../assets/icons/house.svg";
 import pensil from "../assets/icons/pensil.svg";
-import { Link } from "react-router-dom";
 
-export default function StepTwo() {
+export default function StepTwo(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%", position: "relative", textAlign: "center" }}>
@@ -564,9 +565,7 @@ export default function StepTwo() {
       </Grid>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={8} label="Fill Your Details!" stepNumber={2} />
-        <Link to="/step-three" style={{ textDecoration: "none" }}>
-          <NextButton label="Next step" />
-        </Link>
+        <NextButton onClick={setActive} label="Next step" />
       </Box>
     </Container>
   );

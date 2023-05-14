@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -47,9 +46,7 @@ export default function ForgotPasswordRecoveryLinkPage() {
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={0} label="All Rights Reserved" />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Order Your Plan Now!" />
-        </Link>
+        <NextButton label="Order Your Plan Now!" />
       </Box>
     </Container>
   );

@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -7,7 +6,9 @@ import ProgressBar from "../components/ProgressBar";
 import PostSlider from "../modules/stepEight/PostSlider";
 import { POPPINS } from "../utils/config";
 
-export default function StepEight() {
+export default function StepEight(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -40,9 +41,7 @@ export default function StepEight() {
           label="Approve Creations!"
           stepNumber={8}
         />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Approve Plan!" />
-        </Link>
+        <NextButton onClick={setActive} label="Approve Plan!" />
       </Box>
     </Container>
   );

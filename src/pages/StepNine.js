@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -8,7 +7,9 @@ import flat from "../assets/gifs/flat.gif";
 import line from "../assets/icons/line.svg";
 import { POPPINS } from "../utils/config";
 
-export default function StepNine() {
+export default function StepNine(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -76,9 +77,7 @@ export default function StepNine() {
           label="Setup Posting Time!"
           stepNumber={9}
         />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Setup Your Posts Schedule!" />
-        </Link>
+        <NextButton onClick={setActive} label="Setup Your Posts Schedule!" />
       </Box>
     </Container>
   );

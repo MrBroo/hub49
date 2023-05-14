@@ -4,6 +4,8 @@ import { INTER } from "../utils/config";
 export default function ProgressBar(props) {
   const { percentage, label, stepNumber } = props;
 
+  console.log("step", stepNumber, percentage);
+
   return (
     <Box
       sx={{
@@ -14,14 +16,14 @@ export default function ProgressBar(props) {
         background: "#fff",
         boxShadow: "0px -4px 15px rgba(0, 0, 0, 0.25)",
         borderRadius: "8px 8px 0px 0px",
-        maxWidth: !stepNumber ? "334px" : "",
+        maxWidth: !stepNumber ? "334px" : "400px",
         width: !stepNumber ? "100%" : "max-content",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          justifyContent: !stepNumber ? "center" : "unset",
+          justifyContent: !stepNumber ? "center" : "space-beetwen",
           fontSize: "17px",
           ...INTER,
           pt: 2.5,
@@ -29,7 +31,7 @@ export default function ProgressBar(props) {
           px: 2.6,
         }}
       >
-        {percentage === "0" && (
+        {percentage && (
           <Typography
             sx={{
               fontWeight: 700,
@@ -37,7 +39,7 @@ export default function ProgressBar(props) {
               mr: "19px",
             }}
           >
-            {`${percentage}%`}
+            {`${percentage === 2 ? 0 : percentage}%`}
           </Typography>
         )}
         <Typography
@@ -52,10 +54,15 @@ export default function ProgressBar(props) {
         {stepNumber && (
           <Typography
             sx={{ fontWeight: 600, color: "#8FA7B8" }}
-          >{`${stepNumber} ${STEP_NUMBERS[stepNumber]} Step`}</Typography>
+          >{`${stepNumber}${STEP_NUMBERS[stepNumber]} Step`}</Typography>
         )}
       </Box>
       <LinearProgress
+        sx={{
+          "& .MuiLinearProgress-bar": {
+            background: "#47B2FF",
+          },
+        }}
         variant="determinate"
         value={percentage === 0 ? 2 : percentage}
       />

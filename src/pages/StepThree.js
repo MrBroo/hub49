@@ -8,7 +8,9 @@ import flat from "../assets/gifs/flat.gif";
 import line from "../assets/icons/line.svg";
 import { POPPINS } from "../utils/config";
 
-export default function StepThree() {
+export default function StepThree(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -70,9 +72,7 @@ export default function StepThree() {
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={16} label="Order Your Plan!" stepNumber={3} />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Order Your Plan Now!" />
-        </Link>
+        <NextButton onClick={setActive} label="Order Your Plan Now!" />
       </Box>
     </Container>
   );

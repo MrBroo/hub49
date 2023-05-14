@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -7,7 +6,9 @@ import ProgressBar from "../components/ProgressBar";
 import TimeCard from "../modules/stepTen/TimeCard";
 import { POPPINS } from "../utils/config";
 
-export default function StepTen() {
+export default function StepTen(props) {
+  const { setActive } = props;
+
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -47,9 +48,7 @@ export default function StepTen() {
           label="Setup Posting Time!"
           stepNumber={10}
         />
-        <Link to="/step-four" style={{ textDecoration: "none" }}>
-          <NextButton label="Connect Your Social Accounts" />
-        </Link>
+        <NextButton onClick={setActive} label="Connect Your Social Accounts" />
       </Box>
     </Container>
   );
