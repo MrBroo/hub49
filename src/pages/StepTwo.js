@@ -559,6 +559,22 @@ export default function StepTwo(props) {
                   ),
                 }}
               />
+              <Typography
+                sx={{
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  color: "rgba(23, 15, 73, 0.5);",
+                  maxWidth: "352px",
+                  width: "100%",
+                  textAlign: "center",
+                  mt: 0.5,
+                  mx: "auto",
+                  ...DM_SANS,
+                }}
+              >
+                About Company - Reference of Instagram Page You Like Your
+                Content To Have a Similar Style as - Brand Colors as #FFFFFF
+              </Typography>
             </Grid>
           </Grid>
         </Grid>

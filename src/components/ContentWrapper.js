@@ -1,14 +1,11 @@
 import { Box, Card, Step, StepLabel, Stepper } from "@mui/material";
-import { useState } from "react";
 import { INTER } from "../utils/config";
-import { styled } from "@mui/material/styles";
-import Check from "@mui/icons-material/Check";
 
 export default function ContentWrapper(props) {
   const { children, active } = props;
   const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-  console.log("acrive", active);
+  const activeStep = active === 11 || active === 12 ? active - 1 : active;
 
   return (
     <Box
@@ -16,10 +13,11 @@ export default function ContentWrapper(props) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        maxWidth: "1296px",
+        maxWidth: "1336px",
         width: "100%",
         height: "100vh",
         margin: "0 auto",
+        padding: "0 20px",
       }}
     >
       <Card
@@ -35,17 +33,16 @@ export default function ContentWrapper(props) {
           px: "50px",
         }}
       >
-        <Stepper alternativeLabel activeStep={active}>
+        <Stepper alternativeLabel activeStep={activeStep}>
           {steps.map((step, index) => (
             <Step
               key={step}
               sx={{
                 "& .MuiSvgIcon-root": {
-                  width: "51px",
-                  height: "51px",
+                  width: "50px",
+                  height: "50px",
                   fill: "#fff",
                   color: "#47B2FF",
-                  border: "2px solid #47B2FF",
                   borderRadius: "50%",
                   zIndex: 99,
                 },
@@ -58,7 +55,8 @@ export default function ContentWrapper(props) {
                   },
                 },
                 "& .Mui-completed": {
-                  fill: "#47B2FF",
+                  fill: "#fff",
+                  background: "#47B2FF",
                   borderRadius: "50%",
                   "& .MuiSvgIcon-root": {
                     border: 0,
@@ -79,6 +77,8 @@ export default function ContentWrapper(props) {
                 },
                 "& .MuiStepLabel-iconContainer": {
                   p: 0,
+                  border: "2px solid #47B2FF",
+                  borderRadius: "50%",
                 },
               }}
             >
@@ -112,40 +112,5 @@ export default function ContentWrapper(props) {
         ))}
       </Box>
     </Box>
-  );
-}
-
-const QontoStepIconRoot = styled("div")(({ theme, ownerState }) => ({
-  color: theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
-  display: "flex",
-  height: 22,
-  alignItems: "center",
-  ...(ownerState.active && {
-    color: "#784af4",
-  }),
-  "& .QontoStepIcon-completedIcon": {
-    color: "#784af4",
-    zIndex: 1,
-    fontSize: 18,
-  },
-  "& .QontoStepIcon-circle": {
-    width: 8,
-    height: 8,
-    borderRadius: "50%",
-    backgroundColor: "currentColor",
-  },
-}));
-
-function QontoStepIcon(props) {
-  const { active, completed, className } = props;
-
-  return (
-    <QontoStepIconRoot ownerState={{ active }} className={className}>
-      {completed ? (
-        <Check className="QontoStepIcon-completedIcon" />
-      ) : (
-        <div className="QontoStepIcon-circle" />
-      )}
-    </QontoStepIconRoot>
   );
 }

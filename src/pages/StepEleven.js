@@ -232,7 +232,13 @@ export default function StepEleven(props) {
               label="Setup Posting"
               stepNumber={11}
             />
-            <NextButton onClick={() => setNextPage(true)} label="Next Step!" />
+            <NextButton
+              onClick={() => {
+                setActive();
+                setNextPage(true);
+              }}
+              label="Next Step!"
+            />
           </Box>
         </Container>
       ) : (

@@ -31,7 +31,7 @@ export default function ProgressBar(props) {
           px: 2.6,
         }}
       >
-        {percentage && (
+        {percentage > 0 && (
           <Typography
             sx={{
               fontWeight: 700,
@@ -52,9 +52,11 @@ export default function ProgressBar(props) {
           {label}
         </Typography>
         {stepNumber && (
-          <Typography
-            sx={{ fontWeight: 600, color: "#8FA7B8" }}
-          >{`${stepNumber}${STEP_NUMBERS[stepNumber]} Step`}</Typography>
+          <Typography sx={{ fontWeight: 600, color: "#8FA7B8" }}>
+            {stepNumber < 12
+              ? `${stepNumber}${STEP_NUMBERS[stepNumber]} Step`
+              : "Done"}
+          </Typography>
         )}
       </Box>
       <LinearProgress
@@ -82,5 +84,4 @@ const STEP_NUMBERS = {
   9: "th",
   10: "th",
   11: "th",
-  12: "th",
 };

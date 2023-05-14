@@ -14,7 +14,7 @@ import NextButton from "../components/NextButton";
 import eyeIcon from "../assets/icons/eye.svg";
 import ProgressBar from "../components/ProgressBar";
 
-export default function NewPassword() {
+export default function NewPassword({ setActive }) {
   return (
     <Container>
       <Box sx={{ width: "100%" }}>
@@ -187,7 +187,7 @@ export default function NewPassword() {
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={0} label="All Rights Reserved" />
-        <NextButton label="Update Your Password!" />
+        <NextButton onClick={setActive} label="Update Your Password!" />
       </Box>
     </Container>
   );

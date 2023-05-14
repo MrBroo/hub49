@@ -8,7 +8,7 @@ import { useState } from "react";
 import ForgotPasswordRecoveryLinkPage from "./ForgotPasswordRecoveryLinkPage";
 import ProgressBar from "../components/ProgressBar";
 
-export default function ForgotPassword() {
+export default function ForgotPassword({ setActive }) {
   const [forgotPassword, setForgotPassword] = useState(false);
 
   return (
@@ -116,7 +116,7 @@ export default function ForgotPassword() {
           </Box>
         </Container>
       ) : (
-        <ForgotPasswordRecoveryLinkPage />
+        <ForgotPasswordRecoveryLinkPage setActive={setActive} />
       )}
     </>
   );

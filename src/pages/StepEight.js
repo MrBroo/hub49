@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
 import NextButton from "../components/NextButton";
@@ -35,7 +35,34 @@ export default function StepEight(props) {
       <Box>
         <PostSlider />
       </Box>
-      <Box sx={{ position: "relative", width: "100%" }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button
+          sx={{
+            ml: 17,
+            mb: 1.5,
+            py: 0,
+            color: "#47B2FF",
+            textTransform: "unset",
+            border: "1.5px solid #47B2FF",
+            boxShadow: "0px 3px 12px rgba(74, 58, 255, 0.18)",
+            borderRadius: "10px",
+            maxWidth: "222px",
+            width: "100%",
+            fontWeight: 600,
+            fontSize: "16px",
+            lineHeight: "20px",
+            ...POPPINS,
+          }}
+        >
+          Download All Creations & Source Files
+        </Button>
         <ProgressBar
           percentage={56}
           label="Approve Creations!"

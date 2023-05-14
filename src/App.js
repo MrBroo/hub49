@@ -12,9 +12,11 @@ import StepTen from "./pages/StepTen";
 import StepEleven from "./pages/StepEleven";
 import StepEight from "./pages/StepEight";
 import { useState } from "react";
+import StepTwelve from "./pages/StepTwelve";
+import SignIn from "./pages/SignIn";
 
 function App() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(-1);
   const Component = COMPONENTS[active];
 
   return (
@@ -27,6 +29,7 @@ function App() {
 export default App;
 
 const COMPONENTS = {
+  "-1": SignIn,
   0: StepOne,
   1: StepTwo,
   2: StepThree,
@@ -38,4 +41,6 @@ const COMPONENTS = {
   8: StepNine,
   9: StepTen,
   10: StepEleven,
+  11: StepEleven,
+  12: StepTwelve,
 };

@@ -88,6 +88,7 @@ export default function TimeCard() {
               <TextField
                 inputProps={{ maxLength: 2 }}
                 size="small"
+                value={10}
                 sx={{
                   width: "34px",
                   "& .MuiInputBase-input": {
@@ -111,6 +112,7 @@ export default function TimeCard() {
             <Box sx={{ ...boxStyle, mr: "10px" }}>
               <TextField
                 inputProps={{ maxLength: 2 }}
+                value={31}
                 sx={{
                   width: "34px",
                   "& .MuiInputBase-input": {
@@ -123,6 +125,7 @@ export default function TimeCard() {
             <Box sx={{ ...boxStyle }}>
               <TextField
                 inputProps={{ maxLength: 2 }}
+                value="PM"
                 size="small"
                 sx={{
                   width: "34px",

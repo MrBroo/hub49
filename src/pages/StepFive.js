@@ -5,6 +5,11 @@ import NextButton from "../components/NextButton";
 import ProgressBar from "../components/ProgressBar";
 import PlanTable from "../modules/stepFive/PlanTable";
 import { POPPINS } from "../utils/config";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+SwiperCore.use([Navigation]);
 
 export default function StepFive(props) {
   const { setActive } = props;
@@ -127,16 +132,59 @@ export default function StepFive(props) {
       </Box>
       <Box
         sx={{
-          background: "#F4F4F4",
-          border: "1px solid #E4E5EA",
-          boxShadow: "0px 5px 16px rgba(8, 15, 52, 0.06)",
-          borderRadius: "25px",
-          display: "flex",
+          "& .swiper": {
+            maxWidth: "1270px",
+            width: "100%",
+          },
+          "& .swiper-slide": {
+            textAlign: "center",
+            fontSize: "18px",
+            background: "#fff",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
         }}
       >
-        <PlanTable data={data.slice(0, 5)} />
-        <Box sx={{ width: "5px", background: "#E2E2E2" }} />
-        <PlanTable data={data.slice(5)} />
+        <Swiper
+          slidesPerView={1}
+          speed={500}
+          navigation={true}
+          effect={"flip"}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <Box
+              sx={{
+                background: "#F4F4F4",
+                border: "1px solid #E4E5EA",
+                boxShadow: "0px 5px 16px rgba(8, 15, 52, 0.06)",
+                borderRadius: "25px",
+                display: "flex",
+              }}
+            >
+              <PlanTable data={data.slice(0, 5)} />
+              <Box sx={{ width: "5px", background: "#E2E2E2" }} />
+              <PlanTable data={data.slice(5)} />
+            </Box>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Box
+              sx={{
+                background: "#F4F4F4",
+                border: "1px solid #E4E5EA",
+                boxShadow: "0px 5px 16px rgba(8, 15, 52, 0.06)",
+                borderRadius: "25px",
+                display: "flex",
+              }}
+            >
+              <PlanTable data={data.slice(0, 5)} />
+              <Box sx={{ width: "5px", background: "#E2E2E2" }} />
+              <PlanTable data={data.slice(5)} />
+            </Box>
+          </SwiperSlide>
+        </Swiper>
       </Box>
       <Box sx={{ position: "relative", width: "100%" }}>
         <ProgressBar percentage={32} label="Approve Plan!" stepNumber={5} />
