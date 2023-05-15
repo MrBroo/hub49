@@ -5,7 +5,6 @@ import NextButton from "../components/NextButton";
 import ProgressBar from "../components/ProgressBar";
 import PostSlider from "../modules/stepEight/PostSlider";
 import { POPPINS } from "../utils/config";
-import { saveAs } from "file-saver";
 
 import frame1 from "../assets/frame1.svg";
 import frame2 from "../assets/frame2.svg";
@@ -15,8 +14,6 @@ import frame5 from "../assets/frame5.svg";
 import frame6 from "../assets/frame6.svg";
 import frame7 from "../assets/frame7.svg";
 import frame8 from "../assets/frame8.svg";
-import JSZip from "jszip";
-import JSZipUtils from "jszip-utils";
 
 export default function StepEight(props) {
   const { setActive } = props;
@@ -43,43 +40,6 @@ export default function StepEight(props) {
     { id: 19, img: frame8 },
     { id: 20, img: frame3 },
   ];
-
-  function downloadImages() {
-    const urls = [];
-    data.map((item) => {
-      urls.push(item.img);
-    });
-
-    const zip = new JSZip();
-    let count = 0;
-    let count2 = 0;
-    const zipFilename = "creations.zip";
-    let nameFromURL = [];
-
-    let the_arr = "";
-    for (let i = 0; i < urls.length; i++) {
-      the_arr = urls[i].split("/");
-      nameFromURL[i] = the_arr.pop();
-    }
-
-    urls.forEach(function (url) {
-      let filename = nameFromURL[count2];
-      count2++;
-      // loading a file and add it in a zip file
-      JSZipUtils.getBinaryContent(url, (err, data) => {
-        if (err) {
-          throw err; // or handle the error
-        }
-        zip.file(filename, data, { binary: true });
-        count++;
-        if (count === urls.length) {
-          zip.generateAsync({ type: "blob" }).then((content) => {
-            saveAs(content, zipFilename);
-          });
-        }
-      });
-    });
-  }
 
   return (
     <Container>
@@ -116,7 +76,6 @@ export default function StepEight(props) {
         }}
       >
         <Button
-          onClick={downloadImages}
           sx={{
             ml: 17,
             mb: 1.5,
