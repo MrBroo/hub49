@@ -4,8 +4,6 @@ import { INTER } from "../utils/config";
 export default function ProgressBar(props) {
   const { percentage, label, stepNumber } = props;
 
-  console.log("step", stepNumber, percentage);
-
   return (
     <Box
       sx={{

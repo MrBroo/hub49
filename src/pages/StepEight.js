@@ -5,9 +5,81 @@ import NextButton from "../components/NextButton";
 import ProgressBar from "../components/ProgressBar";
 import PostSlider from "../modules/stepEight/PostSlider";
 import { POPPINS } from "../utils/config";
+import { saveAs } from "file-saver";
+
+import frame1 from "../assets/frame1.svg";
+import frame2 from "../assets/frame2.svg";
+import frame3 from "../assets/frame3.svg";
+import frame4 from "../assets/frame4.svg";
+import frame5 from "../assets/frame5.svg";
+import frame6 from "../assets/frame6.svg";
+import frame7 from "../assets/frame7.svg";
+import frame8 from "../assets/frame8.svg";
+import JSZip from "jszip";
+import JSZipUtils from "jszip-utils";
 
 export default function StepEight(props) {
   const { setActive } = props;
+
+  const data = [
+    { id: 1, img: frame1 },
+    { id: 2, img: frame2 },
+    { id: 3, img: frame3 },
+    { id: 4, img: frame4 },
+    { id: 5, img: frame5 },
+    { id: 6, img: frame6 },
+    { id: 7, img: frame7 },
+    { id: 8, img: frame5 },
+    { id: 9, img: frame8 },
+    { id: 10, img: frame3 },
+    { id: 11, img: frame1 },
+    { id: 12, img: frame2 },
+    { id: 13, img: frame3 },
+    { id: 14, img: frame4 },
+    { id: 15, img: frame5 },
+    { id: 16, img: frame6 },
+    { id: 17, img: frame7 },
+    { id: 18, img: frame5 },
+    { id: 19, img: frame8 },
+    { id: 20, img: frame3 },
+  ];
+
+  function downloadImages() {
+    const urls = [];
+    data.map((item) => {
+      urls.push(item.img);
+    });
+
+    const zip = new JSZip();
+    let count = 0;
+    let count2 = 0;
+    const zipFilename = "creations.zip";
+    let nameFromURL = [];
+
+    let the_arr = "";
+    for (let i = 0; i < urls.length; i++) {
+      the_arr = urls[i].split("/");
+      nameFromURL[i] = the_arr.pop();
+    }
+
+    urls.forEach(function (url) {
+      let filename = nameFromURL[count2];
+      count2++;
+      // loading a file and add it in a zip file
+      JSZipUtils.getBinaryContent(url, (err, data) => {
+        if (err) {
+          throw err; // or handle the error
+        }
+        zip.file(filename, data, { binary: true });
+        count++;
+        if (count === urls.length) {
+          zip.generateAsync({ type: "blob" }).then((content) => {
+            saveAs(content, zipFilename);
+          });
+        }
+      });
+    });
+  }
 
   return (
     <Container>
@@ -33,7 +105,7 @@ export default function StepEight(props) {
         </Typography>
       </Box>
       <Box>
-        <PostSlider />
+        <PostSlider data={data} />
       </Box>
       <Box
         sx={{
@@ -44,6 +116,7 @@ export default function StepEight(props) {
         }}
       >
         <Button
+          onClick={downloadImages}
           sx={{
             ml: 17,
             mb: 1.5,
@@ -61,14 +134,14 @@ export default function StepEight(props) {
             ...POPPINS,
           }}
         >
-          Download All Creations & Source Files
+          Download All Creations
         </Button>
         <ProgressBar
           percentage={56}
           label="Approve Creations!"
           stepNumber={8}
         />
-        <NextButton onClick={setActive} label="Approve Plan!" />
+        <NextButton onClick={setActive} label="Approve Creations!" />
       </Box>
     </Container>
   );

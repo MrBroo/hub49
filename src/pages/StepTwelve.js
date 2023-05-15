@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import Container from "../components/CardContainer";
 import HubBage from "../components/HubBage";
-import NextButton from "../components/NextButton";
 import ProgressBar from "../components/ProgressBar";
 import PostSlider from "../modules/stepEight/PostSlider";
 import { POPPINS } from "../utils/config";

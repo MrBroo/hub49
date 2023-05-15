@@ -3,40 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
-import frame1 from "../../assets/frame1.svg";
-import frame2 from "../../assets/frame2.svg";
-import frame3 from "../../assets/frame3.svg";
-import frame4 from "../../assets/frame4.svg";
-import frame5 from "../../assets/frame5.svg";
-import frame6 from "../../assets/frame6.svg";
-import frame7 from "../../assets/frame7.svg";
-import frame8 from "../../assets/frame8.svg";
-
 SwiperCore.use([Navigation]);
 
-export default function PostSlider() {
-  const data = [
-    { id: 1, img: frame1 },
-    { id: 2, img: frame2 },
-    { id: 3, img: frame3 },
-    { id: 4, img: frame4 },
-    { id: 5, img: frame5 },
-    { id: 6, img: frame6 },
-    { id: 7, img: frame7 },
-    { id: 8, img: frame5 },
-    { id: 9, img: frame8 },
-    { id: 10, img: frame3 },
-    { id: 11, img: frame1 },
-    { id: 12, img: frame2 },
-    { id: 13, img: frame3 },
-    { id: 14, img: frame4 },
-    { id: 15, img: frame5 },
-    { id: 16, img: frame6 },
-    { id: 17, img: frame7 },
-    { id: 18, img: frame5 },
-    { id: 19, img: frame8 },
-    { id: 20, img: frame3 },
-  ];
+export default function PostSlider(props) {
+  const { data } = props;
 
   return (
     <Box

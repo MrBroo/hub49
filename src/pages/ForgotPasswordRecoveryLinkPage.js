@@ -54,7 +54,7 @@ export default function ForgotPasswordRecoveryLinkPage({ setActive }) {
             <ProgressBar percentage={0} label="All Rights Reserved" />
             <NextButton
               onClick={() => setNewPassword(true)}
-              label="Order Your Plan Now!"
+              label="Login Page"
             />
           </Box>
         </Container>
