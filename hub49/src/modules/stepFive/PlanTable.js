@@ -69,7 +69,7 @@ export default function PlanTable(props) {
         border: "none",
         "& td": {
           border: 0,
-          pt: 0,
+          py: 0.94,
         },
         "& th": {
           border: 0,

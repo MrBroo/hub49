@@ -1,5 +1,5 @@
 import "./App.css";
-import ContentWrapper from "./components/MainLayout";
+import ContentWrapper from "./components/ContentWrapper";
 import StepFive from "./pages/StepFive";
 import StepOne from "./pages/StepOne";
 import StepFour from "./pages/StepFour";
@@ -14,30 +14,15 @@ import StepEight from "./pages/StepEight";
 import { useState } from "react";
 import StepTwelve from "./pages/StepTwelve";
 import SignIn from "./pages/SignIn";
-import Home from "./pages/Home";
-import LogsListPage from "./pages/LogsListPage";
-import AdminLayout from "./components/AdminLayout";
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [menuPage, setMenuPage] = useState(false);
-
   const [active, setActive] = useState(-1);
   const Component = COMPONENTS[active];
 
   return (
-    <>
-      {!isAdmin ? (
-        <AdminLayout menuPage={menuPage} setMenuPage={setMenuPage}>
-          <Home menuPage={menuPage} setMenuPage={setMenuPage} />
-          {/* <LogsListPage /> */}
-        </AdminLayout>
-      ) : (
-        <ContentWrapper active={active}>
-          <Component setActive={() => setActive(active + 1)} />
-        </ContentWrapper>
-      )}
-    </>
+    <ContentWrapper active={active}>
+      <Component setActive={() => setActive(active + 1)} />
+    </ContentWrapper>
   );
 }
 
